@@ -5,7 +5,7 @@ let triangle = fs.readFileSync(process.argv[2]).toString().split('\r\n').map(lin
 
 // Go from the bottom to the top, reading each element once for O(n)
 for(let row = triangle.length - 2; row >= 0; row--) {
-    // Calculate adjacent below by adding on the maximum of either branch
+    // Calculate each by adding on the maximum of the branch below
     for(let col = 0; col < triangle[row].length; col++) {
         triangle[row][col] += Math.max(triangle[row + 1][col], triangle[row + 1][col + 1]);
     }
